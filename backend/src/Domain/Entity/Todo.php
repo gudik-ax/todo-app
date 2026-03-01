@@ -41,9 +41,9 @@ final class Todo
         return $this->createdAt;
     }
 
-    public function complete(): void
+    public function toggleComplete(): void
     {
-        $this->completed = true;
+        $this->completed = !$this->completed;
     }
 
     public function toArray(): array

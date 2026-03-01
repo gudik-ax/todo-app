@@ -22,7 +22,7 @@ final readonly class CompleteTodo
             return null;
         }
 
-        $todo->complete();
+        $todo->toggleComplete();
         $this->repository->save($todo);
 
         return $todo;

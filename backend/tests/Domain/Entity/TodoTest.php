@@ -19,12 +19,21 @@ final class TodoTest extends TestCase
         $this->assertNotNull($todo->getCreatedAt());
     }
 
-    public function testCompleteTodo(): void
+    public function testToggleCompleteOn(): void
     {
         $todo = new Todo('Buy milk');
-        $todo->complete();
+        $todo->toggleComplete();
 
         $this->assertTrue($todo->isCompleted());
+    }
+
+    public function testToggleCompleteOff(): void
+    {
+        $todo = new Todo('Buy milk');
+        $todo->toggleComplete();
+        $todo->toggleComplete();
+
+        $this->assertFalse($todo->isCompleted());
     }
 
     public function testToArray(): void
