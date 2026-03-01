@@ -6,19 +6,19 @@ namespace App\Tests\Unit;
 
 use App\Application\UseCase\ListTodosUseCase;
 use App\Domain\Entity\Todo;
-use App\Domain\Repository\TodoRepositoryInterface;
+use App\Domain\Port\TodoRepositoryPort;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class ListTodosUseCaseTest extends TestCase
 {
-    private TodoRepositoryInterface&MockObject $repository;
+    private TodoRepositoryPort&MockObject $repository;
     private ListTodosUseCase $useCase;
 
     protected function setUp(): void
     {
-        $this->repository = $this->createMock(TodoRepositoryInterface::class);
+        $this->repository = $this->createMock(TodoRepositoryPort::class);
         $this->useCase = new ListTodosUseCase($this->repository);
     }
 

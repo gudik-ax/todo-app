@@ -7,19 +7,19 @@ namespace App\Tests\Unit;
 use App\Application\UseCase\DeleteTodoUseCase;
 use App\Domain\Entity\Todo;
 use App\Domain\Exception\TodoNotFoundException;
-use App\Domain\Repository\TodoRepositoryInterface;
+use App\Domain\Port\TodoRepositoryPort;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class DeleteTodoUseCaseTest extends TestCase
 {
-    private TodoRepositoryInterface&MockObject $repository;
+    private TodoRepositoryPort&MockObject $repository;
     private DeleteTodoUseCase $useCase;
 
     protected function setUp(): void
     {
-        $this->repository = $this->createMock(TodoRepositoryInterface::class);
+        $this->repository = $this->createMock(TodoRepositoryPort::class);
         $this->useCase = new DeleteTodoUseCase($this->repository);
     }
 

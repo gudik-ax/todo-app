@@ -7,19 +7,19 @@ namespace App\Tests\Unit;
 use App\Application\UseCase\CompleteTodoUseCase;
 use App\Domain\Entity\Todo;
 use App\Domain\Exception\TodoNotFoundException;
-use App\Domain\Repository\TodoRepositoryInterface;
+use App\Domain\Port\TodoRepositoryPort;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class CompleteTodoUseCaseTest extends TestCase
 {
-    private TodoRepositoryInterface&MockObject $repository;
+    private TodoRepositoryPort&MockObject $repository;
     private CompleteTodoUseCase $useCase;
 
     protected function setUp(): void
     {
-        $this->repository = $this->createMock(TodoRepositoryInterface::class);
+        $this->repository = $this->createMock(TodoRepositoryPort::class);
         $this->useCase = new CompleteTodoUseCase($this->repository);
     }
 
