@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Domain/Entity/'
+            - '../src/Kernel.php'
+
+    App\Domain\Port\TodoRepositoryPort:
+        class: App\Infrastructure\Persistence\DoctrineTodoRepository
